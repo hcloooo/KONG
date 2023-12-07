@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Home</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff; /* Modified font color to white */
+            padding: 5px 10px;
+            border: 1px solid #333;
+            border-radius: 3px;
+        }
+
+        nav a.active {
+            background-color: #333;
+            color: #fff;
+        }
+
+        nav ul.categories {
+            position: absolute;
+            background-color: #333;
+            color: #fff;
+            display: none;
+            z-index: 1;
+        }
+
+        nav li:hover .categories {
+            display: block;
+        }
+
+        nav ul.categories li {
+            display: block;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #fff;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>欢迎来到我的博客!</h1>
+    <nav>
+        <ul>
+            <li><a th:href="@{/}" th:class="${currentUrl == '/' ? 'active' : ''}">首页</a></li>
+            <li><a th:href="@{/blog/list}" th:class="${currentUrl == '/blog/list' ? 'active' : ''}">我的博客</a></li>
+            <li>
+                <a href="#" th:class="${currentUrl == '/category/list' ? 'active' : ''}">分类</a>
+                <ul class="categories">
+                    <li th:each="category : ${categories}" th:text="${category.name}"></li>
+                </ul>
+            </li>
+            <li style="margin-left: 100px"><a th:href="@{/login}" th:class="${currentUrl == '/admin/list' ? 'active' : ''}">登录</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section>
+    <!-- Latest Blogs -->
+    <h2>Latest Blogs</h2>
+    <ul>
+        <li th:each="blog : ${latestBlogs}">
+            <article>
+                <h3 th:text="${blog.title}"></h3>
+                <p th:text="${blog.content}"></p>
+                <p>作者: <span th:text="${blog.user.username}"></span></p>
+            </article>
+            <hr/>
+        </li>
+    </ul>
+</section>
+
+<footer>
+    <p>&copy; 2023 孙悟空的博客</p>
+</footer>
+
+</body>
+</html>

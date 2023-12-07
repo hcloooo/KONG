@@ -1,0 +1,29 @@
+<!-- templates/blog/blog-list.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog List</title>
+</head>
+<body>
+<h1>Blog List</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Content</th>
+        <!-- Add more columns if needed -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="blog : ${blogs}">
+        <td th:text="${blog.blogId}"></td>
+        <td th:text="${blog.title}"></td>
+        <td th:text="${blog.content}"></td>
+        <!-- Add more cells if needed -->
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

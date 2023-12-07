@@ -1,0 +1,27 @@
+<!-- templates/admin/admin-list.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin List</title>
+</head>
+<body>
+<h1>Admin List</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <!-- Add more columns if needed -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="admin : ${admins}">
+        <td th:text="${admin.adminId}"></td>
+        <td th:text="${admin.username}"></td>
+        <!-- Add more cells if needed -->
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
