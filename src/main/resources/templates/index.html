@@ -107,7 +107,7 @@
                     <li th:each="category : ${categories}" th:text="${category.name}"></li>
                 </ul>
             </li>
-            <li style="margin-left: 100px"><a th:href="@{/login}" th:class="${currentUrl == '/admin/list' ? 'active' : ''}">登录</a></li>
+            <li style="margin-left: 100px"><a th:href="@{/admin}" th:class="${currentUrl == '/admin/list' ? 'active' : ''}">登录</a></li>
         </ul>
     </nav>
 </header>

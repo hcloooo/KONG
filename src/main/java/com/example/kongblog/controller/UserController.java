@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 // UserController.java
 @Controller
-@RequestMapping("admin")
+@RequestMapping("/user")
 public class UserController {
 
-    @Autowired
+   /* @Autowired
     private UserService userService;
     @GetMapping("/login")
     public String showLoginForm() {
@@ -41,5 +41,5 @@ public class UserController {
     public String registerUser(User user) {
         userService.registerUser(user);
         return "redirect:/login";
-    }
+    }*/
 }
