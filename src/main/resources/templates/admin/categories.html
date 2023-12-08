@@ -19,13 +19,13 @@
     <tbody>
     <!-- 使用Thymeleaf迭代显示分类列表 -->
     <tr th:each="category : ${categories}">
-        <td th:text="${category.id}"></td>
+        <td th:text="${category.categoryId}"></td>
         <td th:text="${category.name}"></td>
         <td>
             <!-- 编辑按钮 -->
-            <a th:href="@{/admin/editCategory/{id}(id=${category.id})}">编辑</a>
+            <a th:href="@{/admin/editCategory/{id}(id=${category.categoryId})}">编辑</a>
             <!-- 删除按钮 -->
-            <a th:href="@{/admin/deleteCategory/{id}(id=${category.id})}">删除</a>
+            <a th:href="@{/admin/deleteCategory/{id}(id=${category.categoryId})}">删除</a>
         </td>
     </tr>
     </tbody>

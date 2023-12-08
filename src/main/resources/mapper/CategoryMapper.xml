@@ -3,21 +3,33 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- resources/mapper/CategoryMapper.xml -->
+<!-- src/main/resources/mapper/CategoryMapper.xml -->
+
 <mapper namespace="com.example.kongblog.mapper.CategoryMapper">
 
-    <insert id="insertCategory" parameterType="com.example.kongblog.model.Category">
-        INSERT INTO category (name)
-        VALUES (#{name})
-    </insert>
-
-    <select id="getCategoryById" parameterType="java.lang.Long" resultType="com.example.kongblog.model.Category">
-        SELECT * FROM category WHERE category_id = #{categoryId}
-    </select>
-
+    <!-- Select all categories -->
     <select id="getAllCategories" resultType="com.example.kongblog.model.Category">
         SELECT * FROM category
     </select>
 
-    <!-- Other methods -->
+    <!-- Insert a new category -->
+    <insert id="addCategory" parameterType="com.example.kongblog.model.Category">
+        INSERT INTO category (name) VALUES (#{name})
+    </insert>
+
+    <!-- Select category by ID -->
+    <select id="getCategoryById" parameterType="java.lang.Long" resultType="com.example.kongblog.model.Category">
+        SELECT * FROM category WHERE category_id = #{id}
+    </select>
+
+    <!-- Update an existing category -->
+    <update id="editCategory" parameterType="com.example.kongblog.model.Category">
+        UPDATE category SET name = #{name} WHERE category_id = #{categoryId}
+    </update>
+
+    <!-- Delete a category by ID -->
+    <delete id="deleteCategory" parameterType="java.lang.Long">
+        DELETE FROM category WHERE category_id = #{id}
+    </delete>
 
 </mapper>

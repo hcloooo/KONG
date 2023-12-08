@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Category</title>
+</head>
+<body>
+<h2>Edit Category</h2>
+
+<!-- Your form for editing an existing category -->
+<form th:action="@{/admin/editCategory}" method="post">
+    <!-- Include a hidden field for the category ID -->
+    <input type="hidden" id="id" name="categoryId" th:value="${category.categoryId}">
+
+    <!-- Add your form fields here as needed -->
+    <label for="name">Category Name:</label>
+    <input type="text" id="name" name="name" th:value="${category.name}" required>
+
+    <button type="submit">Save Changes</button>
+</form>
+
+<!-- Back to category list link -->
+<a th:href="@{/admin/categories}">Back to Categories</a>
+</body>
+</html>

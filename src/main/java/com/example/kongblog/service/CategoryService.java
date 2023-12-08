@@ -4,10 +4,16 @@ import com.example.kongblog.model.Category;
 
 import java.util.List;
 
-// CategoryService.java
 public interface CategoryService {
-    void createCategory(Category category);
-    Category getCategoryById(Long categoryId);
-    List<Category> getAllCategories();
-    // other methods
+
+
+     List<Category> getAllCategories();
+
+     void addCategory(Category category);
+
+     Category getCategoryById(Long id);
+
+    void editCategory(Category category) ;
+
+    void deleteCategory(Long id);
 }

@@ -5,11 +5,16 @@ import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-// CategoryMapper.java
 @Mapper
 public interface CategoryMapper {
-    void insertCategory(Category category);
-    Category getCategoryById(Long categoryId);
+
     List<Category> getAllCategories();
-    // other methods
+
+    void addCategory(Category category);
+
+    Category getCategoryById(Long id);
+
+    void editCategory(Category category);
+
+    void deleteCategory(Long id);
 }

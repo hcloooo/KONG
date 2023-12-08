@@ -15,20 +15,23 @@ public class CategoryServiceImpl implements CategoryService {
     @Autowired
     private CategoryMapper categoryMapper;
 
-    @Override
-    public void createCategory(Category category) {
-        categoryMapper.insertCategory(category);
-    }
-
-    @Override
-    public Category getCategoryById(Long categoryId) {
-        return categoryMapper.getCategoryById(categoryId);
-    }
-
-    @Override
     public List<Category> getAllCategories() {
         return categoryMapper.getAllCategories();
     }
 
-    // Implement other methods as needed
+    public void addCategory(Category category) {
+        categoryMapper.addCategory(category);
+    }
+
+    public Category getCategoryById(Long id) {
+        return categoryMapper.getCategoryById(id);
+    }
+
+    public void editCategory(Category category) {
+        categoryMapper.editCategory(category);
+    }
+
+     public void deleteCategory(Long id) {
+        categoryMapper.deleteCategory(id);
+    }
 }

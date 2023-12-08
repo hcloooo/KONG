@@ -4,8 +4,6 @@ import com.example.kongblog.model.Blog;
 import com.example.kongblog.model.User;
 import com.example.kongblog.model.vo.BlogVo;
 import com.example.kongblog.service.BlogService;
-import com.example.kongblog.service.CategoryService;
-import com.example.kongblog.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -21,14 +18,10 @@ import java.util.List;
 public class BlogController {
 
     private final BlogService blogService;
-    private final UserService userService;
-    private final CategoryService categoryService;
 
     @Autowired
-    public BlogController(BlogService blogService,UserService userService,CategoryService categoryService) {
+    public BlogController(BlogService blogService) {
         this.blogService = blogService;
-        this.userService = userService;
-        this.categoryService = categoryService;
     }
 
     @GetMapping("/blogs")
