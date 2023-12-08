@@ -21,7 +21,8 @@
     <button type="button" onclick="submitForm()">注册</button>
     <button type="button" onclick="toLogin()">登录页面</button>
 </form>
-
+<a th:href="@{/admin/index}">后台首页</a>
+<a th:href="@{/admin/logout}">退出登录</a>
 <script>
     function submitForm() {
         var username = $('#username').val();
