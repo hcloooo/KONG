@@ -1,4 +1,4 @@
-package com.example.kongblog.controller;
+package com.example.kongblog.controller.admin;
 
 import com.example.kongblog.model.User;
 import com.example.kongblog.service.UserService;

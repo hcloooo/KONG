@@ -1,22 +1,62 @@
-<!-- src/main/resources/templates/register.html -->
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title>Login Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
 
-<h2>Register</h2>
-<form th:action="@{/admin/registers}" method="post" th:object="${user}">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" th:field="*{username}" required>
+<h2>注册页面</h2>
+<form id="loginForm">
+    <label for="username">用户名:</label>
+    <input type="text" id="username" name="username">
     <br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" th:field="*{password}" required>
+    <label for="password">密码:</label>
+    <input type="password" id="password" name="password">
     <br>
-    <button type="submit">Register</button>
+    <label for="password">邮箱:</label>
+    <input type="password" id="email" name="email">
+    <br>
+    <button type="button" onclick="submitForm()">注册</button>
+    <button type="button" onclick="toLogin()">登录页面</button>
 </form>
+
+<script>
+    function submitForm() {
+        var username = $('#username').val();
+        var password = $('#password').val();
+        var email = $('#email').val();
+
+        // Send AJAX request to the server
+        $.ajax({
+            type: 'POST',
+            url: '/admin/registers', // Replace with your server endpoint
+            data: {
+                username: username,
+                password: password,
+                email: email
+            },
+            success: function(response) {
+                // Handle successful login response
+                if(response=="1"){
+                    alert("注册成功")
+                    window.location.href="../admin";
+                }else{
+                    alert("注册失败");
+                    window.location.href="register";
+                }
+            },
+            error: function(error) {
+                // Handle login error
+                alert(error);
+            }
+        });
+    }
+    function toLogin(){
+        window.location="../admin";
+    }
+</script>
 
 </body>
 </html>
