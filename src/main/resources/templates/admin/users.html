@@ -20,20 +20,20 @@
     <tbody>
     <!-- 使用Thymeleaf迭代显示用户列表 -->
     <tr th:each="user : ${users}">
-        <td th:text="${user.id}"></td>
+        <td th:text="${user.userId}"></td>
         <td th:text="${user.username}"></td>
         <td th:text="${user.email}"></td>
         <td>
             <!-- 编辑按钮 -->
-            <a th:href="@{/editUser/{id}(id=${user.id})}">编辑</a>
+            <a th:href="@{/admin/editUser/{id}(id=${user.userId})}">编辑</a>
             <!-- 删除按钮 -->
-            <a th:href="@{/deleteUser/{id}(id=${user.id})}">删除</a>
+            <a th:href="@{/admin/deleteUser/{id}(id=${user.userId})}">删除</a>
         </td>
     </tr>
     </tbody>
 </table>
 
 <!-- 新增用户按钮 -->
-<a th:href="@{/addUser}">新增用户</a>
+<a th:href="@{/admin/addUser}">新增用户</a>
 </body>
 </html>

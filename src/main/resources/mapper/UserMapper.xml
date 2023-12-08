@@ -22,6 +22,12 @@
         SELECT * FROM user
     </select>
 
-    <!-- Other methods -->
+    <update id="updateUser" parameterType="User">
+        UPDATE user SET username = #{username}, email = #{email}, password = #{password} WHERE user_id = #{userId};
+    </update>
+
+    <delete id="deleteUser" parameterType="Long">
+        DELETE FROM user WHERE user_id = #{id};
+    </delete>
 
 </mapper>

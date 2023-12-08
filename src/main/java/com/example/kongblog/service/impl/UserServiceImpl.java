@@ -44,6 +44,14 @@ public class UserServiceImpl implements UserService {
     public List<User> getAllUsers() {
         return userMapper.getAllUsers();
     }
+    @Override
+    public void updateUser(User user) {
+        userMapper.updateUser(user);
+    }
 
-    // Implement other methods as needed
+    @Override
+    public void deleteUser(Long id) {
+        userMapper.deleteUser(id);
+    }
+
 }
