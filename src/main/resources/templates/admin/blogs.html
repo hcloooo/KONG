@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>博客管理</title>
+</head>
+<body>
+<h2>博客管理</h2>
+
+<!-- 博客列表 -->
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- 使用Thymeleaf迭代显示博客列表 -->
+    <tr th:each="blog : ${blogs}">
+        <td th:text="${blog.blogId}"></td>
+        <td th:text="${blog.title}"></td>
+        <td th:text="${blog.content}"></td>
+        <td>
+            <!-- 编辑按钮 -->
+            <a th:href="@{/admin/editBlog/{id}(id=${blog.blogId})}">编辑</a>
+            <!-- 删除按钮 -->
+            <a th:href="@{/admin/deleteBlog/{id}(id=${blog.blogId})}">删除</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- 新增博客按钮 -->
+<a th:href="@{/admin/addBlog}">新增博客</a>
+</body>
+</html>

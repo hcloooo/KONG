@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+</head>
+<body>
+<h2>用户管理</h2>
+
+<!-- 用户列表 -->
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- 使用Thymeleaf迭代显示用户列表 -->
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.email}"></td>
+        <td>
+            <!-- 编辑按钮 -->
+            <a th:href="@{/editUser/{id}(id=${user.id})}">编辑</a>
+            <!-- 删除按钮 -->
+            <a th:href="@{/deleteUser/{id}(id=${user.id})}">删除</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- 新增用户按钮 -->
+<a th:href="@{/addUser}">新增用户</a>
+</body>
+</html>

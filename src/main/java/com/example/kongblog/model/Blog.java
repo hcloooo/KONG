@@ -19,6 +19,18 @@ public class Blog {
         this.blogId = blogId;
     }
 
+    @Override
+    public String toString() {
+        return "Blog{" +
+                "blogId=" + blogId +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", userId=" + userId +
+                ", categoryId=" + categoryId +
+                ", createdAt=" + createdAt +
+                '}';
+    }
+
     public String getTitle() {
         return title;
     }

@@ -7,7 +7,7 @@
 
     <insert id="insertBlog" parameterType="com.example.kongblog.model.Blog">
         INSERT INTO blog (title, content, user_id, category_id, created_at)
-        VALUES (#{title}, #{content}, #{user.userId}, #{category.categoryId}, #{createdAt})
+        VALUES (#{title}, #{content}, #{userId}, #{categoryId}, #{createdAt})
     </insert>
 
     <select id="getBlogById" parameterType="java.lang.Long" resultType="com.example.kongblog.model.Blog">
@@ -19,8 +19,8 @@
     </select>
 
     <update id="updateBlog" parameterType="com.example.kongblog.model.Blog">
-        UPDATE blog SET title = #{title}, content = #{content}, user_id = #{user.userId},
-                        category_id = #{category.categoryId} WHERE blog_id = #{blogId}
+        UPDATE blog SET title = #{title}, content = #{content}, user_id = #{userId},
+                        category_id = #{categoryId} WHERE blog_id = #{blogId}
     </update>
 
     <delete id="deleteBlog" parameterType="java.lang.Long">

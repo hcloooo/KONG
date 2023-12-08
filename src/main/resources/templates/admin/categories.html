@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>分类管理</title>
+</head>
+<body>
+<h2>分类管理</h2>
+
+<!-- 分类列表 -->
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- 使用Thymeleaf迭代显示分类列表 -->
+    <tr th:each="category : ${categories}">
+        <td th:text="${category.id}"></td>
+        <td th:text="${category.name}"></td>
+        <td>
+            <!-- 编辑按钮 -->
+            <a th:href="@{/admin/editCategory/{id}(id=${category.id})}">编辑</a>
+            <!-- 删除按钮 -->
+            <a th:href="@{/admin/deleteCategory/{id}(id=${category.id})}">删除</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- 新增分类按钮 -->
+<a th:href="@{/admin/addCategory}">新增分类</a>
+</body>
+</html>

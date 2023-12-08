@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Blog</title>
+</head>
+<body>
+<h2>Add Blog</h2>
+
+<form th:action="@{/admin/addBlog}" th:object="${blog}" method="post">
+    Title: <input type="text" th:field="*{title}" required><br>
+    Content: <textarea th:field="*{content}" required></textarea><br>
+    Category:
+    <select th:field="*{categoryId}" required>
+        <!-- Replace the option values and labels with your actual categories -->
+        <option value="1">Category 1</option>
+        <option value="2">Category 2</option>
+        <option value="3">Category 3</option>
+        <!-- Add more options as needed -->
+    </select><br>
+    <button type="submit">Add Blog</button>
+</form>
+
+<a th:href="@{/admin/blogs}">Back to Blog List</a>
+</body>
+</html>

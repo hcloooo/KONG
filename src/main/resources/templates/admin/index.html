@@ -1,1 +1,22 @@
-222
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理主页</title>
+</head>
+<body>
+<h2>后台管理主页</h2>
+
+<!-- 导航栏 -->
+<nav>
+    <ul>
+        <li><a th:href="@{/admin/blogs}">博客管理</a></li>
+        <li><a th:href="@{/admin/users}">用户管理</a></li>
+        <li><a th:href="@{/admin/categories}">分类管理</a></li>
+    </ul>
+</nav>
+
+<!-- 其他内容可以根据需要添加 -->
+
+</body>
+</html>
