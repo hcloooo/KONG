@@ -4,7 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- resources/mapper/AdminMapper.xml -->
 <mapper namespace="com.example.kongblog.mapper.AdminMapper">
-
+    <insert id="insertAdmin" parameterType="com.example.kongblog.model.Admin">
+        INSERT INTO admin (username, password, created_at)
+        VALUES (#{username}, #{password}, #{email}, #{createdAt})
+    </insert>
     <select id="getAdminByUsername" parameterType="java.lang.String" resultType="com.example.kongblog.model.Admin">
         SELECT * FROM admin WHERE username = #{username}
     </select>

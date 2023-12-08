@@ -23,7 +23,7 @@ public class UserController {
 
     @GetMapping("/users")
     public String showUserManagement(Model model, HttpSession session) {
-        if(session.getAttribute("user")==null){
+        if(session.getAttribute("admin")==null){
             return "redirect:/admin";
         }
         List<User> users = userService.getAllUsers();
@@ -33,7 +33,7 @@ public class UserController {
 
     @GetMapping("/editUser/{id}")
     public String showEditUserForm(@PathVariable Long id, Model model, HttpSession session) {
-        if(session.getAttribute("user")==null){
+        if(session.getAttribute("admin")==null){
             return "redirect:/admin";
         }
         User user = userService.getUserById(id);
@@ -43,7 +43,7 @@ public class UserController {
 
     @PostMapping("/editUser/{id}")
     public String editUser(@PathVariable Long id, @ModelAttribute("user") User user, HttpSession session) {
-        if(session.getAttribute("user")==null){
+        if(session.getAttribute("admin")==null){
             return "redirect:/admin";
         }
         user.setUserId(id);
@@ -53,7 +53,7 @@ public class UserController {
 
     @GetMapping("/deleteUser/{id}")
     public String deleteUser(@PathVariable Long id, HttpSession session) {
-        if(session.getAttribute("user")==null){
+        if(session.getAttribute("admin")==null){
             return "redirect:/admin";
         }
         userService.deleteUser(id);
@@ -62,7 +62,7 @@ public class UserController {
 
     @GetMapping("/addUser")
     public String showAddUserForm(Model model, HttpSession session) {
-        if(session.getAttribute("user")==null){
+        if(session.getAttribute("admin")==null){
             return "redirect:/admin";
         }
         model.addAttribute("user", new User());
@@ -71,7 +71,7 @@ public class UserController {
 
     @PostMapping("/addUser")
     public String addUser(@ModelAttribute("user") User user, HttpSession session) {
-        if(session.getAttribute("user")==null){
+        if(session.getAttribute("admin")==null){
             return "redirect:/admin";
         }
         if(userService.getUserByUsername(user.getUsername())==null){

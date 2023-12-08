@@ -19,6 +19,7 @@
         <option value="3">Category 3</option>
         <!-- Add more options as needed -->
     </select><br>
+    <input type="hidden" th:field="*{userId}" th:value="${blog.userId}">
 </form>
 
 <a th:href="@{/admin/blogs}">Back to Blog List</a>

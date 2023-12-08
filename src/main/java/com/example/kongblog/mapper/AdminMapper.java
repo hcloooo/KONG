@@ -10,5 +10,7 @@ import java.util.List;
 public interface AdminMapper {
     Admin getAdminByUsername(String username);
     List<Admin> getAllAdmins();
+
+    void insertAdmin(Admin admin);
     // other methods
 }

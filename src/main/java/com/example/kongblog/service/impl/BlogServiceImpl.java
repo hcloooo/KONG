@@ -45,7 +45,14 @@ public class BlogServiceImpl implements BlogService {
             blogVo.setContent(blog.getContent());
             blogVo.setTitle(blog.getTitle());
             blogVo.setCreatedAt(blog.getCreatedAt());
-            blogVo.setUser(userMapper.getUserById(blog.getUserId()));
+            if(blog.getUserId()==001l){
+                User user = new User();
+                user.setUsername("管理员");
+                user.setUserId(001l);
+                blogVo.setUser(user);
+            }else {
+                blogVo.setUser(userMapper.getUserById(blog.getUserId()));
+            }
             blogVo.setCategory(categoryMapper.getCategoryById(blog.getCategoryId()));
             blogVos.add(blogVo);
         }
